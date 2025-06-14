@@ -1,1 +1,1 @@
-export DB_URL="postgresql://localhost:5432/postgres"
+export DB_URL="postgres://owner:@localhost:5432/rideshare_development"
