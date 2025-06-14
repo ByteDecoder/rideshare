@@ -33,6 +33,25 @@ brew install rbenv
 ## PostgreSQL
 PostgreSQL 16 or greater is required. Installation may be via Homebrew, although the recommended method is [Postgres.app](https://postgresapp.com)
 
+Docker
+
+```bash
+docker run --name postgres_17_5 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:17.5
+```
+
+Executing commands via container
+
+```bash
+docker exec -it postgres_17_5 bash
+docker exec -it postgres_17_5 psql -U postgres
+```
+
+Inside contianer
+
+```bash
+#  psql -U postgres
+```
+
 ### PostgresApp
 - Once installed, from the Menu Bar app, choose "Open Postgres" then click the "+" icon to create a new PostgreSQL 16 server
 
