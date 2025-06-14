@@ -44,6 +44,23 @@ Executing commands via container
 ```bash
 docker exec -it postgres_17_5 bash
 docker exec -it postgres_17_5 psql -U postgres
+
+export DB_URL="postgresql://localhost:5432/postgres"
+
+./db/setup_wsl.sh
+# Copy .pgpass to the docker container
+./db/container_pgpass.sh
+# execute always
+set-connection-vars.sh
+
+# COnnect to psql from host into the container
+docker exec -it postgres_17_5 psql $DB_URL -U owner
+
+$ docker exec -it postgres_17_5 psql $DB_URL -U owner --dbname rideshare_development
+psql (17.5 (Debian 17.5-1.pgdg120+1))
+Type "help" for help.
+
+rideshare_development=> \q
 ```
 
 Inside contianer

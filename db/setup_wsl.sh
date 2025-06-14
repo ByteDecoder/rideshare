@@ -96,6 +96,9 @@ localhost:54322:rideshare_development:owner:$RIDESHARE_DB_PASSWORD
 *:*:*:replication_user:$RIDESHARE_DB_PASSWORD
 *:*:*:app_readonly:$RIDESHARE_DB_PASSWORD" >> ~/.pgpass
 
+cat ~/.pgpass | docker exec -i postgres_17_5 bash -c ">> ~/.pgpass"
+docker exec -i postgres_17_5 bash -c "chmod 0600 ~/.pgpass"
+
 # Set file ownership and permissions
 echo "chmod ~/.pgpass"
 chmod 0600 ~/.pgpass
