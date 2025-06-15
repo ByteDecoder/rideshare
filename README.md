@@ -33,7 +33,11 @@ brew install rbenv
 ## PostgreSQL
 PostgreSQL 16 or greater is required. Installation may be via Homebrew, although the recommended method is [Postgres.app](https://postgresapp.com)
 
-Docker
+```bash
+export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
+```
+
+## Docker
 
 ```bash
 docker run --name postgres_17_5 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:17.5
@@ -58,8 +62,8 @@ set-connection-vars.sh
 # docker exec -it postgres_17_5 psql $DB_URL -U owner --dbname rideshare_development
 
 # After .pgpass is configured properly
-$ export DB_URL="postgres://owner:@localhost:5432/rideshare_development"
-$ docker exec -it postgres_17_5 psql $DB_URL
+export DB_URL="postgres://owner:@localhost:5432/rideshare_development"
+docker exec -it postgres_17_5 psql $DB_URL
 ```
 
 Inside contianer
