@@ -34,7 +34,8 @@ brew install rbenv
 PostgreSQL 16 or greater is required. Installation may be via Homebrew, although the recommended method is [Postgres.app](https://postgresapp.com)
 
 ```bash
-export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development
+export DB_URL="postgres://owner:@localhost:54329/rideshare_development"
+psql $DB_URL
 ```
 
 ## Docker
